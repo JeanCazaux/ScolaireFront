@@ -13,28 +13,12 @@
 import moment from "moment";
 
 export default {
-  name: "Scolaire",
+  name: "MotsEtSons",
 
   data: () => ({
     moment,
-    sons: [
-      'ga',
-      'teau',
-      'le',
-      'eau',
-      'co',
-      'be',
-      'pou',
-      'ou',
-      'ille',
-    ],
-    mots: [
-      'gateau',
-      'école',
-      'abeille',
-      'chat',
-      'poule',
-    ],
+    sons: ["ga", "teau", "le", "eau", "co", "be", "pou", "ou", "ille"],
+    mots: ["gateau", "école", "abeille", "chat", "poule"],
     motInfos: []
   }),
 
@@ -45,22 +29,22 @@ export default {
     });
 
     // Formattage des sons (eau => |e.a.u|)
-    let sonFormats = []
+    let sonFormats = [];
     this.sons.forEach(son => {
-      let format = ''
+      let format = "";
       for (let i = 0; i < son.length; i++) {
-        if (format !== '') {
-          format += '.'
+        if (format !== "") {
+          format += ".";
         }
-        format += son[i]
+        format += son[i];
       }
-      format = `|${format}|`
+      format = `|${format}|`;
       sonFormats.push({
         son: son,
-        format: format,
-      })
+        format: format
+      });
     });
-    this.sons = sonFormats
+    this.sons = sonFormats;
 
     // Lancer la découpe des mots par sons
     this.traiteMots();
@@ -71,24 +55,23 @@ export default {
     traiteMots() {
       // Pour chacun des mots
       this.mots.forEach(mot => {
-        let motDecoupe = mot.toLowerCase()
+        let motDecoupe = mot.toLowerCase();
 
         // Pour chacun des sons
         this.sons.forEach(son => {
-          motDecoupe = motDecoupe.split(son.son).join(`${son.format}`)
+          motDecoupe = motDecoupe.split(son.son).join(`${son.format}`);
         });
-        motDecoupe = motDecoupe.split('||').join('|')
-        motDecoupe = motDecoupe.split('.').join('')
+        motDecoupe = motDecoupe.split("||").join("|");
+        motDecoupe = motDecoupe.split(".").join("");
 
         this.motInfos.push({
           mot: mot,
-          son: motDecoupe,
-        })
+          son: motDecoupe
+        });
       });
-    },
+    }
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

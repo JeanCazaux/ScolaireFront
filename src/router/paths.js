@@ -57,11 +57,27 @@ export default [
     component: () => import(`@/views/Mots/MotsEtSons.vue`)
   },
   {
+    path: "/math/liste",
+    meta: {
+      public: true
+    },
+    name: "MathListe",
+    component: () => import(`@/views/Math/Liste.vue`)
+  },
+  {
+    path: "/math/exercice",
+    meta: {
+      public: true
+    },
+    name: "MathExercice",
+    component: () => import(`@/views/Math/Exercice.vue`)
+  },
+  {
     path: "/",
     meta: {},
     name: "Root",
     redirect: {
       name: "MotsEtSons"
     }
-  },
+  }
 ];

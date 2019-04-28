@@ -9,14 +9,14 @@
 import AppToolbar from "@/components/AppToolbar";
 
 export default {
-  name: "Tenders",
+  name: "Scolaire",
 
   components: {
     AppToolbar
   },
 
   data: () => ({
-    headerShow: false,
+    headerShow: false
   })
 };
 </script>
